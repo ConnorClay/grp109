@@ -262,3 +262,16 @@ footer {
     max-width: 80px;
     margin-bottom: 15px;
 }
+
+  #completion-info {
+    border: 3pt solid #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    margin-top:20px;
+}
+
+#names {
+    font-weight: bold;
+    margin-left: 10px;
+}
