@@ -1,27 +1,48 @@
-function calculateTotal() {
-    const pricePerItem = 15.99;
-    let total = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    // Contact form logic 
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
 
-    const chiaPuddingQty = parseInt(document.getElementById("chiaPuddingQty").value);
-    const avocadoToastQty = parseInt(document.getElementById("avocadoToastQty").value);
-    const fruitSmoothieQty = parseInt(document.getElementById("fruitSmoothieQty").value);
-    const eggsAndBaconQty = parseInt(document.getElementById("eggsAndBaconQty").value);
-    const wafflesQty = parseInt(document.getElementById("wafflesQty").value);
-    const alkiiBowlQty = parseInt(document.getElementById("alkiiBowlQty").value);
-    const breakfastPuddingQty = parseInt(document.getElementById("breakfastPuddingQty").value);
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-    if (isNaN(chiaPuddingQty) || isNaN(avocadoToastQty) || isNaN(fruitSmoothieQty) || isNaN(eggsAndBaconQty) || isNaN(wafflesQty) || isNaN(alkiiBowlQty) || isNaN(breakfastPuddingQty)){
-        alert("Please enter valid number values for your order quantities.");
-        return;
+            formMessage.textContent = `Thanks, ${name}! Your fake message has been sent.`;
+            formMessage.style.backgroundColor = '#d4edda';
+            formMessage.style.color = '#155724';
+            formMessage.classList.remove('hidden');
+            form.reset();
+        });
     }
 
-    total += chiaPuddingQty * pricePerItem;
-    total += avocadoToastQty * pricePerItem;
-    total += fruitSmoothieQty * pricePerItem;
-    total += eggsAndBaconQty * pricePerItem;
-    total += wafflesQty * pricePerItem;
-    total += alkiiBowlQty * pricePerItem;
-    total += breakfastPuddingQty * pricePerItem;
+    // Menu order calculator logic
+    const quantities = document.querySelectorAll('.quantity');
+    const orderList = document.getElementById('orderList');
+    const orderTotal = document.getElementById('orderTotal');
 
-    document.getElementById("totalPrice").textContent = total.toFixed(2);
-}
+    function updateOrder() {
+        let total = 0;
+        let orderItems = [];
+
+        quantities.forEach(quantityInput => {
+            const quantity = parseInt(quantityInput.value);
+            const price = parseFloat(quantityInput.dataset.price);
+            const itemName = quantityInput.previousElementSibling.previousElementSibling.textContent; // Get the item name
+
+            if (quantity > 0) {
+                total += quantity * price;
+                orderItems.push(`<li>${itemName} x${quantity} - $${(quantity * price).toFixed(2)}</li>`);
+            }
+        });
+
+        orderList.innerHTML = orderItems.join('');
+        orderTotal.textContent = total.toFixed(2);
+    }
+
+    quantities.forEach(quantityInput => {
+        quantityInput.addEventListener('change', updateOrder);
+    });
+});
