@@ -147,3 +147,21 @@ function updateName() {
 
 
 setInterval(updateName, 2000);
+
+document.addEventListener('DOMContentLoaded', function() {
+
+   
+    if (document.querySelector('.home-page')) { 
+        const teamNamesDiv = document.getElementById('team-names');
+        const teamNames = ["Connor", "Clay", "Olivia", "Zygmunt", "Daniel", "Cherkasov"];
+        let currentIndex = 0;
+
+        function displayNextName() {
+            teamNamesDiv.textContent = teamNames[currentIndex];
+            currentIndex = (currentIndex + 1) % teamNames.length;
+        }
+
+        displayNextName(); 
+        setInterval(displayNextName, 2000); 
+    }
+});
