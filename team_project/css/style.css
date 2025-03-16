@@ -17,7 +17,7 @@ header {
 }
 
 .logo img {
-    height: 150px;
+    height: 50px;
 }
 
 nav a {
@@ -65,7 +65,7 @@ main {
 .detail img {
     width: 30px;
     margin-right: 10px;
-    filter: brightness(0) saturate(100%) invert(18%) sepia(61%) saturate(3991%) hue-rotate(345deg) brightness(97%) contrast(98%);
+    filter: brightness(0) saturate(100%) invert(18%) sepia(61%) saturate(3991%) hue-rotate(345deg) brightness(97%) contrast(98%); 
 }
 
 .form-group {
@@ -97,7 +97,7 @@ button {
 }
 
 button:hover {
-    background-color: #902828;
+    background-color: #902828; 
 }
 
 .map-container iframe {
@@ -178,9 +178,13 @@ footer {
 .item-image {
     max-width: 120px;
     max-height: 120px;
-    display: block; 
-    margin: 15px auto; 
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
     border-radius: 5px;
+}
 
 .image-link {
     width: 100%;
@@ -188,69 +192,4 @@ footer {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 15px;
-}
-.home-page {
-    text-align: center;
-}
-
-.hero {
-    background-image: url('https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/modern-cafe-house.jpg'); 
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 150px 0;
-    position: relative;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1; 
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-}
-
-.menu-button {
-    display: inline-block;
-    background-color: #b83232;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.menu-button:hover {
-    background-color: #902828;
-}
-
-.about, .features {
-    padding: 50px 20px;
-}
-
-.feature-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.feature-item {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
-.feature-item img {
-    max-width: 80px;
-    margin-bottom: 15px;
 }
