@@ -178,13 +178,9 @@ footer {
 .item-image {
     max-width: 120px;
     max-height: 120px;
-    position: relative;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 15px;
+    display: block; 
+    margin: 15px auto; 
     border-radius: 5px;
-}
 
 .image-link {
     width: 100%;
