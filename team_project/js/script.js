@@ -129,3 +129,21 @@ carousel.addEventListener('click', (event) => {
         advanceCarousel();
     }
 });
+
+const names = ['daniel c', 'Jconner c',  'olivia z'];
+
+
+const namesElement = document.getElementById('names');
+
+
+let currentNameIndex = 0;
+namesElement.textContent = names[currentNameIndex];
+
+
+function updateName() {
+    currentNameIndex = (currentNameIndex + 1) % names.length;
+    namesElement.textContent = names[currentNameIndex];
+}
+
+
+setInterval(updateName, 2000);
