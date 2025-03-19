@@ -1,0 +1,33 @@
+
+.carousel-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    background-color: #f0f0f0;
+}
+
+.carousel-container {
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 600px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.counter {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
