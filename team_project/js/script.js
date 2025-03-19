@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         quantities.forEach(quantityInput => {
             const quantity = parseInt(quantityInput.value);
             const price = parseFloat(quantityInput.dataset.price);
-            const itemName = quantityInput.previousElementSibling.previousElementSibling.textContent; // Get the item name
+            const itemName = quantityInput.previousElementSibling.previousElementSibling.textContent; 
 
             if (quantity > 0) {
                 total += quantity * price;
@@ -47,6 +47,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+   
+
+    if (document.querySelector('.carousel-page')) {
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        const counter = document.querySelector('.counter');
+
+        let index = 0;
+        let time = 0;
+        let intervalId;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${index * images[0].clientWidth}px)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % images.length;
+            updateCarousel();
+        }
+
+        function startTimer() {
+            intervalId = setInterval(function() {
+                time++;
+                counter.textContent = `Elapsed Time: ${time} seconds`;
+            }, 1000);
+        }
+
+        function startCarousel() {
+            setInterval(nextSlide, 3000);
+        }
+
+        startCarousel();
+        startTimer();
+    }
+});
 const carousel = document.querySelector('.carousel');
 const counter = document.querySelector('.counter');
 
