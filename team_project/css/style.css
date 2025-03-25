@@ -294,6 +294,24 @@ footer {
     margin-top:20px;
 }
 
+.ppt-page {
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.ppt-embed {
+    margin-bottom: 30px;
+}
+
+.ppt-embed iframe {
+    width: 100%; 
+    max-width: 788px; 
+    height: 600px;
+    border: none;
+}
 #names {
     font-weight: bold;
     margin-left: 10px;
